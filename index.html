@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    html {
+      padding: 0%;
+      font-family: 'Courier New', monospace;
+      background-color: #F5F5F5;
+    }
+
+    h3,
+    h2 {
+      text-align: center;
+      color: #4CAF50;
+      text-transform: uppercase;
+    }
+    main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    #user-input {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background-color: #FFFFFF;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      padding: 10px;
+      width: 40%;
+      max-width: 600px;
+    }
+
+    #benchmark-form div,
+    #benchmark-form label {
+      margin: 2px;
+      padding: 2px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #benchmark-form textarea {
+      font-family: 'Courier New', monospace;
+      border: 1px solid #ddd;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    #benchmark-form textarea:focus,
+    input:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+
+    #payload-error {
+      color: red;
+      font-weight: bold;
+    }
+
+    #user-output {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #FFFFFF;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 5px;
+      margin-left: 10px;
+      width: 40%;
+      max-width: 600px;
+    }
+
+    #parentElementId table {
+      border-collapse: collapse;
+      margin: 10px;
+      width: 100%;
+    }
+
+    #parentElementId th,
+    #parentElementId td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #parentElementId th {
+      background-color: #4CAF50;
+      color: #FFFFFF;
+    }
+
+    #add-header {
+      background-color: #4CAF50;
+      border: none;
+      color: #FFFFFF;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #add-header:hover {
+      background-color: #3e8e41;
+    }
+
+    #benchmark-form button[type="submit"] {
+      background-color: #4CAF50;
+      border: none;
+      color: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #benchmark-form button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+    footer {
+        background-color: #f2f2f2;
+        padding: 10px;
+          bottom: 0;
+        width: 100%;
+        text-align: right;
+      }
+      footer a {
+        color: #337ab7;
+        text-decoration: none;
+        padding-right: 20px;
+      }
+  </style>
+  <title>Web Benchmark Tool</title>
+</head>
+
+<body>
+  <h3>Mocki</h3>
+  <main>
+    <div id="user-input">
+  <form id="token-form" action="/token" method="post">
+    <label for="token">Token: <a target="_blank" href="https://www.mockaroo.com/">(Get one)</a></label>
+    <input type="text" id="token" name="token">
+    <button type="submit">Set Token</button>
+  </form>
+  <div id="tokenElement"></div>
+  <form id="benchmark-form">
+    <div>
+      <label for="protocol-http">HTTP</label>
+      <input type="radio" id="protocol-http" name="protocol" value="http" checked>
+      <label for="protocol-https">HTTPS</label>
+      <input type="radio" id="protocol-https" name="protocol" value="https">
+      <label for="method">Method:</label>
+      <select id="method" name="method">
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+        <option value="PUT">PUT</option>
+        <option value="DELETE">DELETE</option>
+        <option value="PATCH">PATCH</option>
+      </select><br>
+    </div>
+    <br>
+    <div>
+      <label for="base-url">Target URL:</label>
+      <input type="text" id="base-url" name="base-url" size="40">
+      <label for="port">Port:</label>
+      <input type="text" id="port" name="port" size="6"><br><br>
+      <label for="path">Path:</label>
+      <input type="text" id="path" name="path" size="65">
+    </div>
+    <br>
+    <!-- <div>
+        <div id="query-params">
+          <div class="query-input">
+            <input class="query-key" type="text" placeholder="Key">
+            <input class="query-value" type="text" placeholder="Value">
+            <button type="button" onclick="this.parentNode.remove()">Remove</button>
+          </div>
+        </div>
+    
+        <button type="button" onclick="addQueryInput()">Add Query Parameter</button> 
+      </div> -->
+    <div>
+      <label for="connection-count">Number of Connections:</label>
+      <input type="text" id="connection-count" name="connection-count" size="4">
+      <label for="requester-count">Max connection:</label>
+      <input type="text" id="requester-count" name="requester-count" size="4"><br><br>
+      <label for="pipeline">Pipelining:</label>
+      <input type="text" id="pipeline" name="pipeline" size="4">
+      <label for="duration">Duration:</label>
+      <input type="text" id="duration" name="duration" size="4">
+    </div>
+    <br>
+    <div id="expected-requests"></div>
+    <div>
+      <label for="headers">Headers:</label>
+      <div id="headers">
+        <div>
+          <input type="text" name="header-key[]" placeholder="Key">
+          <input type="text" name="header-value[]" placeholder="Value">
+          <button type="button" id="add-header">+</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <label for="payload">Payload:</label>
+    <div>
+      <textarea id="payload" name="payload" rows="20" cols="60" wrap=""></textarea>
+      <div id="payload-error"></div>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  </div>
+  <div id="user-output">
+    <h2>Performance result</h2>
+    <div id="parentElementId"></div>
+  </div>
+</main>
+  <footer>
+    <strong><a target="_blank" href="./intro.html">Appendix</a></strong>|
+      author/twitter:<a target="_blank" href="http://github.com/mutairibassam">@mutairibassam</a>|
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
