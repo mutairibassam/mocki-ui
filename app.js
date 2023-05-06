@@ -93,7 +93,7 @@ tokenForm.addEventListener("submit", async (event) => {
   const formData = new FormData(tokenForm);
   const token = formData.get("token");
     // Send HTTP request
-    const response = await fetch(`http://161.35.99.225:3001/token?apiKey=${token}`, {
+    const response = await fetch(`http://143.244.145.16:3001/token?apiKey=${token}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -145,7 +145,7 @@ form.addEventListener("submit", async (event) => {
   parentElement.textContent = "";
 
   // Send HTTP request
-  const response = await fetch("http://161.35.99.225:3001/benchmark", {
+  const response = await fetch("http://143.244.145.16:3001/benchmark", {
     method: "POST",
     mode: "cors",
     headers: {
