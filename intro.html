@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro | Mocki</title>
+    <style>
+        html {
+            margin: 0%;
+            padding: 0%;
+        }
+        body {
+            padding: 10px;
+            padding-left: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 0%;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        strong {
+            font-weight: bold;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        p {
+            text-align: center; 
+            margin-top: 0%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 24px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #307833;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mocki</h1> 
+    <p>Mocki is a HTTP benchmarking and data generation tool. <u> No scripts or manual data generation anymore!</u></p>
+    <p>generate traffic simulating users or applications that access a site application or api and see how much traffic that application can handle before it becomes slower or inaccessible</p>
+    <p>**more bandwidth does not improve load time**</p>
+    <a style="text-decoration: none;" href="./index.html"><button>Try Now</button></a>
+    <h3>Appendix</h3>
+    <ul>
+        <li>Pipelining: The number of pipelined requests to use. default: 1. Note: backend pipelining support is required, otherwise will be defaulted to 1.</li>
+        <li>Number of Connection: The number of concurrent connections to use. default: 10.</li>
+        <li>Max connection: The max number of requests to make per connection to the server. default: 10</li>
+        <li>Duration: The number of seconds to run the autocannon. default: 10.</li>
+    </ul>
+
+    <h3>Backlog (things might be removed):</h3>
+    <ul>
+        <li>static query params (done)</li>
+        <li>Add more variables: connection rate, max overall requests, and amount of total requests.</li>
+        <li>Default test types: Stress Testing, Soak Testing, and Load Testing.</li>
+        <li>Upload: Upload a form (multipart/form-data).</li>
+        <li>Workers: Number of worker threads to use to fire requests.</li>
+        <li>Get copy of generated data.</li>
+        <li>Support HTTP/2.0</li>
+        <li>thresholds</li>
+        <li>add fuzzy testing</li>
+    </ul>
+    <h3>tips</h3>
+    <ul>
+        <li>Performance optimization: (hacks - reduce number of requests) / ugly appraoches:</li>
+        <ul>
+            <li>spriting (combine multi images into one big image)</li>
+            <li>inlining (putting images inside a css file)</li>
+            <li>concataining (mashing it with JS)</li>
+            <li>sharding (distribute content over different unique hosts to avoid have limited TCP connection per host). so more hosts more TCP connections</li>
+        </ul>
+        these have been solved by HTTP 2 with the support of multi-plexing.
+    </ul>
+</body>
+</html>
