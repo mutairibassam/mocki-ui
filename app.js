@@ -1,3 +1,4 @@
+const baseUrl = 'http://143.244.145.16:3001';
 const payloadInput = document.getElementById("payload");
 const payloadError = document.getElementById("payload-error");
 const selectElement = document.getElementById("method");
@@ -93,7 +94,7 @@ tokenForm.addEventListener("submit", async (event) => {
   const formData = new FormData(tokenForm);
   const token = formData.get("token");
     // Send HTTP request
-    const response = await fetch(`http://143.244.145.16:3001/token?apiKey=${token}`, {
+    const response = await fetch(`${baseUrl}/token?apiKey=${token}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -145,7 +146,7 @@ form.addEventListener("submit", async (event) => {
   parentElement.textContent = "";
 
   // Send HTTP request
-  const response = await fetch("http://143.244.145.16:3001/benchmark", {
+  const response = await fetch(`${baseUrl}/benchmark`, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -154,12 +155,12 @@ form.addEventListener("submit", async (event) => {
     body: JSON.stringify(json),
   });
   const result = await response.json();
-  if(Object.keys(result).length > 1) {
-    result = result.data
-    if(result.includes("generate")) {
-      result = "You need to set the token first."
-    }
-  }
+  // if(Object.keys(result).length > 1) {
+  //   result = result.data
+  //   if(result.includes("generate")) {
+  //     result = "You need to set the token first."
+  //   }
+  // }
   // Create a table element
   const table = document.createElement("table");
   const td = createTableFromObject(result, table);
