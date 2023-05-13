@@ -21,4 +21,11 @@ http://baseurl.com/api/v1/add?name=bob&email=bob@gmail.com&fix_type=user
 Dummy data will be generated for name and email but not for type. However, don't worry the tool will remove `fix_` before send the request.
 
 #### Dynamic values
-All values in query parameters and payload with no `fix` prefix will be randomly and uniquely generated. 
+All values in query parameters and payload with no `fix` prefix will be randomly and uniquely generated.
+
+#### Hash Files
+| OS  | Version | Hash |
+| ------------- | ------------- | --------- |
+| Linux  | v1.0  | d9813bfba23d5430fb4f4b9b329630de20521897ff129af35e17b732b3648ce4
+| Macos  | v1.0  | ec4b7a99c11a4652070d2778f67a7a57598a62a05fead2cb3e859b3c62fdd49a
+| Windows  | v1.0  | ec4b7a99c11a4652070d2778f67a7a57598a62a05fead2cb3e859b3c62fdd49a
