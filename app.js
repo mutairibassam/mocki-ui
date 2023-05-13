@@ -13,8 +13,8 @@ const parentElement = document.getElementById("parentElementId");
 // const token_element = document.getElementById("tokenElement");
 
 function calculateExpectedTotal() {
-  var connectionCount = document.getElementById("connection-count").value || 10; // default value is 10
-  var maxConnection = document.getElementById("requester-count").value || 10; // default value is 10
+  var connectionCount = document.getElementById("connection-count").value || 5; // default value is 5
+  var maxConnection = document.getElementById("requester-count").value || 5; // default value is 5
   var pipelining = document.getElementById("pipeline").value || 1; // default value is 1
 
   var expectedTotal = Number(connectionCount) * Number(maxConnection) * Number(pipelining);
