@@ -24,8 +24,10 @@ Dummy data will be generated for name and email but not for type. However, don't
 All values in query parameters and payload with no `fix` prefix will be randomly and uniquely generated.
 
 #### Hash Files
-| OS  | Version | Hash |
+| OS  | Version | Shasum |
 | ------------- | ------------- | --------- |
-| Linux  | v1.0  | 08be785cabb01df77245706ed8a3f09e6c9ed10b7a681aa4d7af6e08f4b4043f
-| Macos  | v1.0  | 0f1317b1f4deb7545de36f39d0e8dc7c1352e434bf817fd2e8c5f92825d5c6dc
-| Windows  | v1.0  | 57facb28ca68901ec6423abbcb7c9e03deb0dd03e4a97e282b3c0b861d7539f9
+| Linux  | v1.0  | fe17657e056f8befe6adf37b795255ceec0326f681fa7e18d17f0ddc138ba8da
+| Macos  | v1.0  | b83361b3e52c726ee66a91be78f0c783084a22669a4e2f2e1883946935436841
+| Windows  | v1.0  | 229ed76cd11a4fa565c8896f687125627989be7614fd0b2b48801346a3e610fa
+
+To verify shasum value `shasum -a 256 ./path/to/file.txt`
