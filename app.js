@@ -1,4 +1,11 @@
-const baseUrl = 'http://143.244.145.16:3001';
+let isCloud = 'cloud'
+const radioButtons = document.querySelectorAll('input[name="target"]');
+  
+radioButtons.forEach(function(radioButton) {
+  radioButton.addEventListener('change', function() {
+    isCloud = document.querySelector('input[name="target"]:checked').value;
+  });
+});
 const payloadInput = document.getElementById("payload");
 const payloadError = document.getElementById("payload-error");
 const selectElement = document.getElementById("method");
@@ -90,7 +97,8 @@ addHeaderButton.addEventListener("click", () => {
 const tokenForm = document.getElementById("token-form");
 tokenForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-
+  baseUrl = isCloud == "cloud" ? "http://143.244.145.16:3001" : 'http://localhost:3001';
+  
   const formData = new FormData(tokenForm);
   const token = formData.get("token");
     // Send HTTP request
@@ -108,6 +116,7 @@ tokenForm.addEventListener("submit", async (event) => {
 const form = document.getElementById("benchmark-form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  baseUrl = isCloud == "cloud" ? "http://143.244.145.16:3001" : 'http://localhost:3001';
 
   const formData = new FormData(form);
   const payload = formData.get("payload");
