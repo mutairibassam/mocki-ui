@@ -26,6 +26,6 @@ All values in query parameters and payload with no `fix` prefix will be randomly
 #### Hash Files
 | OS  | Version | Hash |
 | ------------- | ------------- | --------- |
-| Linux  | v1.0  | d9813bfba23d5430fb4f4b9b329630de20521897ff129af35e17b732b3648ce4
-| Macos  | v1.0  | ec4b7a99c11a4652070d2778f67a7a57598a62a05fead2cb3e859b3c62fdd49a
-| Windows  | v1.0  | ec4b7a99c11a4652070d2778f67a7a57598a62a05fead2cb3e859b3c62fdd49a
+| Linux  | v1.0  | 08be785cabb01df77245706ed8a3f09e6c9ed10b7a681aa4d7af6e08f4b4043f
+| Macos  | v1.0  | 0f1317b1f4deb7545de36f39d0e8dc7c1352e434bf817fd2e8c5f92825d5c6dc
+| Windows  | v1.0  | 57facb28ca68901ec6423abbcb7c9e03deb0dd03e4a97e282b3c0b861d7539f9
