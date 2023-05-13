@@ -10,7 +10,7 @@ const payloadInput = document.getElementById("payload");
 const payloadError = document.getElementById("payload-error");
 const selectElement = document.getElementById("method");
 const parentElement = document.getElementById("parentElementId");
-const token_element = document.getElementById("tokenElement");
+// const token_element = document.getElementById("tokenElement");
 
 function calculateExpectedTotal() {
   var connectionCount = document.getElementById("connection-count").value || 10; // default value is 10
@@ -93,24 +93,6 @@ addHeaderButton.addEventListener("click", () => {
     newHeaderDiv.remove();
   });
 });
-
-const tokenForm = document.getElementById("token-form");
-tokenForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  baseUrl = isCloud == "cloud" ? "http://143.244.145.16:3001" : 'http://localhost:3001';
-  
-  const formData = new FormData(tokenForm);
-  const token = formData.get("token");
-    // Send HTTP request
-    const response = await fetch(`${baseUrl}/token?apiKey=${token}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    });
-    const data = await response.json();
-    token_element.textContent = data.result;   
-})
 
 // Submit form
 const form = document.getElementById("benchmark-form");
