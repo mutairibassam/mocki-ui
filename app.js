@@ -10,7 +10,6 @@ const payloadInput = document.getElementById("payload");
 const payloadError = document.getElementById("payload-error");
 const selectElement = document.getElementById("method");
 const parentElement = document.getElementById("parentElementId");
-// const token_element = document.getElementById("tokenElement");
 
 function calculateExpectedTotal() {
   var connectionCount = document.getElementById("connection-count").value || 5; // default value is 5
@@ -156,7 +155,6 @@ form.addEventListener("submit", async (event) => {
   const table = document.createElement("table");
   const td = createTableFromObject(result, table);
   parentElement.appendChild(td);
-  token_element.textContent = "";
 });
 
 function createTableFromObject(result, table) {
