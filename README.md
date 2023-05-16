@@ -29,5 +29,6 @@ All values in query parameters with no `fix` prefix and payload will be randomly
 | [Linux](https://github.com/mutairibassam/mocki-ui/releases/download/v1.0/mocki-linux)  | v1.0  | fe17657e056f8befe6adf37b795255ceec0326f681fa7e18d17f0ddc138ba8da
 | [Macos](https://github.com/mutairibassam/mocki-ui/releases/download/v1.0/mocki-macos)  | v1.0  | b83361b3e52c726ee66a91be78f0c783084a22669a4e2f2e1883946935436841
 | [Windows](https://github.com/mutairibassam/mocki-ui/releases/download/v1.0/mocki-win.exe)  | v1.0  | 229ed76cd11a4fa565c8896f687125627989be7614fd0b2b48801346a3e610fa
+| [Windows x64](https://github.com/mutairibassam/mocki-ui/releases/download/v1.0/mocki-win-x68.exe)  | v1.0  | 252655cb0d3e63727848f6a14619aeed9f9abdeeb2227fc68b1a927779f884f6
 
 To verify shasum value `shasum -a 256 ./path/to/file.txt`
