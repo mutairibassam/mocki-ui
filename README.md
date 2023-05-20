@@ -32,3 +32,6 @@ All values in query parameters with no `fix` prefix and payload will be randomly
 | [Windows x64](https://github.com/mutairibassam/mocki-ui/releases/download/v1.0/mocki-win-x68.exe)  | v1.0  | 252655cb0d3e63727848f6a14619aeed9f9abdeeb2227fc68b1a927779f884f6
 
 To verify shasum value `shasum -a 256 ./path/to/file.txt`
+
+#### Optimization tool
+- [Clinic for nodejs](https://www.npmjs.com/package/clinic).
