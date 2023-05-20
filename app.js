@@ -150,7 +150,7 @@ form.addEventListener("submit", async (event) => {
     body: JSON.stringify(json),
   }).catch((_) => {
     const div = document.createElement("div");
-    div.innerHTML = `<div> server error! </div>`;
+    div.innerHTML = `<div> If you selected local make sure backend is running locally. Otherwise create <a href="https://github.com/mutairibassam/mocki-ui/issues">a new issue</a> for investigation.</div>`;
     parentElement.appendChild(div);
   });
   const result = await response.json();
