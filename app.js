@@ -1,8 +1,8 @@
-let isCloud = 'cloud'
+let isCloud = "cloud";
 const radioButtons = document.querySelectorAll('input[name="target"]');
-  
-radioButtons.forEach(function(radioButton) {
-  radioButton.addEventListener('change', function() {
+
+radioButtons.forEach(function (radioButton) {
+  radioButton.addEventListener("change", function () {
     isCloud = document.querySelector('input[name="target"]:checked').value;
   });
 });
@@ -16,9 +16,12 @@ function calculateExpectedTotal() {
   var maxConnection = document.getElementById("requester-count").value || 5; // default value is 5
   var pipelining = document.getElementById("pipeline").value || 1; // default value is 1
 
-  var expectedTotal = Number(connectionCount) * Number(maxConnection) * Number(pipelining);
+  var expectedTotal =
+    Number(connectionCount) * Number(maxConnection) * Number(pipelining);
 
-  document.getElementById("expected-requests").textContent = `Expected number of hits: ${expectedTotal}`;
+  document.getElementById(
+    "expected-requests"
+  ).textContent = `Expected number of hits: ${expectedTotal}`;
 }
 
 window.onload = calculateExpectedTotal;
@@ -32,11 +35,11 @@ selectElement.addEventListener("change", function () {
 // Validate JSON payload
 payloadInput.addEventListener("input", () => {
   try {
-    if(payloadInput.value.length !== 0) {
+    if (payloadInput.value.length !== 0) {
       JSON.parse(payloadInput.value);
-      payloadError.textContent = ""
+      payloadError.textContent = "";
     } else {
-      payloadError.textContent = ""
+      payloadError.textContent = "";
     }
   } catch (error) {
     payloadError.textContent = error.message;
@@ -97,7 +100,8 @@ addHeaderButton.addEventListener("click", () => {
 const form = document.getElementById("benchmark-form");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  baseUrl = isCloud == "cloud" ? "http://143.244.145.16:3001" : 'http://localhost:3001';
+  baseUrl =
+    isCloud == "cloud" ? "http://143.244.145.16:3001" : "http://localhost:3001";
 
   const formData = new FormData(form);
   const payload = formData.get("payload");
@@ -141,16 +145,16 @@ form.addEventListener("submit", async (event) => {
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify(json),
+  }).catch((_) => {
+    const div = document.createElement("div");
+    div.innerHTML = `<div> server error! </div>`;
+    parentElement.appendChild(div);
   });
   const result = await response.json();
-  // if(Object.keys(result).length > 1) {
-  //   result = result.data
-  //   if(result.includes("generate")) {
-  //     result = "You need to set the token first."
-  //   }
-  // }
+
   // Create a table element
   const table = document.createElement("table");
   const td = createTableFromObject(result, table);
